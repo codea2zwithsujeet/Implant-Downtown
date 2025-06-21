@@ -43,11 +43,11 @@ export const EmergencySection = () => {
                     {t('emergency.urgentCareDesc')}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button className="bg-red-600 hover:bg-red-700 flex-1">
+                    <Button className="bg-red-600 hover:bg-red-700 flex-1" aria-label="Call Now">
                       <Phone className="w-4 h-4 mr-2" />
                       {t('emergency.callNow')}
                     </Button>
-                    <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-50 flex-1">
+                    <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-50 flex-1" aria-label="ask Consultation">
                       {t('emergency.askConsultation')}
                     </Button>
                   </div>

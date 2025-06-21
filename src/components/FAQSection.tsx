@@ -101,9 +101,9 @@ export const FAQSection = () => {
                     element.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors" aria-label="Schedule Consultation"
               >
-                Schedule Your Free Consultation
+                Schedule Your Consultation
               </button>
             </div>
           </div>

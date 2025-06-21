@@ -34,7 +34,7 @@ export const ContactForm = () => {
 
       toast({
         title: "Consultation Request Sent!",
-        description: "We'll contact you within 24 hours to schedule your free consultation.",
+        description: "We'll contact you within 24 hours to schedule your consultation.",
       });
 
       setFormData({
@@ -150,7 +150,7 @@ export const ContactForm = () => {
             />
           </div>
 
-          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6">
+          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6" aria-label="Send Consultation Request">
             <Send className="w-5 h-5 mr-2" />
             Send Consultation Request
           </Button>
