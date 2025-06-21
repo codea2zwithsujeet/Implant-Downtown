@@ -1,11 +1,11 @@
-
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,25 +15,44 @@ export const ContactForm = () => {
     message: "",
     consultationType: "general"
   });
+
+  const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simulate form submission
-    toast({
-      title: "Consultation Request Sent!",
-      description: "We'll contact you within 24 hours to schedule your free consultation.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      consultationType: "general"
-    });
+
+    if (!formRef.current) return;
+
+    try {
+      await emailjs.sendForm(
+        "service_70z33xs",         // replace with your EmailJS service ID
+        "template_8xdfgoa",        // replace with your EmailJS template ID
+        formRef.current,
+        "pUcFA7AkH0UTRLSxi"          // replace with your EmailJS public key
+      );
+
+      toast({
+        title: "Consultation Request Sent!",
+        description: "We'll contact you within 24 hours to schedule your free consultation.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        consultationType: "general"
+      });
+
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Something went wrong.",
+        description: "Please try again or contact us by phone.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -50,7 +69,7 @@ export const ContactForm = () => {
         <p className="text-gray-600">Fill out the form below and we'll contact you within 24 hours.</p>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -64,10 +83,9 @@ export const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="Enter your full name"
-                className="w-full"
               />
             </div>
-            
+
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                 Phone Number *
@@ -80,7 +98,6 @@ export const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="(555) 123-4567"
-                className="w-full"
               />
             </div>
           </div>
@@ -97,7 +114,6 @@ export const ContactForm = () => {
               onChange={handleChange}
               required
               placeholder="your.email@example.com"
-              className="w-full"
             />
           </div>
 
@@ -131,7 +147,6 @@ export const ContactForm = () => {
               onChange={handleChange}
               rows={4}
               placeholder="Tell us about your dental concerns or questions..."
-              className="w-full"
             />
           </div>
 
