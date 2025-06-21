@@ -27,7 +27,7 @@ const resources = {
       about: {
         title: "About Implant Downtown",
         subtitle: "Leading the way in dental care excellence across Canada with cutting-edge technology and compassionate care.",
-        doctorName: "Dr. Sarah Johnson, DDS",
+        doctorName: "Dr. Vassal Valai, DDS",
         doctorDescription: "With over 15 years of specialized experience in comprehensive dentistry, Dr. Johnson has transformed thousands of smiles across Canada. She combines advanced techniques with a gentle, patient-centered approach to deliver exceptional results.",
         boardCertified: "Board Certified",
         implantSpecialist: "Dental Specialist",
@@ -213,7 +213,7 @@ const resources = {
       about: {
         title: "À propos de Implant Downtown",
         subtitle: "Leader en excellence des soins dentaires au Canada avec une technologie de pointe et des soins compatissants.",
-        doctorName: "Dr. Sarah Johnson, DDS",
+        doctorName: "Dr. Vassal Valai, DDS",
         doctorDescription: "Avec plus de 15 ans d'expérience spécialisée en dentisterie complète, le Dr Johnson a transformé des milliers de sourires à travers le Canada. Elle combine des techniques avancées avec une approche douce et centrée sur le patient pour offrir des résultats exceptionnels.",
         boardCertified: "Certifiée",
         implantSpecialist: "Spécialiste dentaire",

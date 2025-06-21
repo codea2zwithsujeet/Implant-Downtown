@@ -65,7 +65,7 @@ export const ContactForm = () => {
   return (
     <Card className="shadow-lg">
       <CardHeader>
-        <CardTitle className="text-2xl text-gray-900">Book Your Free Consultation</CardTitle>
+        <CardTitle className="text-2xl text-gray-900">Book Your Consultation</CardTitle>
         <p className="text-gray-600">Fill out the form below and we'll contact you within 24 hours.</p>
       </CardHeader>
       <CardContent>

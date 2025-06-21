@@ -47,7 +47,7 @@ const Index = () => {
         <title>Dental Implants in Montreal | Implant Downtown Clinic</title>
         <meta
           name="description"
-          content="Looking for expert dental implants in Montreal? Implant Downtown offers full-mouth, All-on-4, and single-tooth implants with free consultations and flexible financing."
+          content="Looking for expert dental implants in Montreal? Implant Downtown offers full-mouth, All-on-4, and single-tooth implants with  consultations and flexible financing."
         />
         <meta
           name="keywords"
