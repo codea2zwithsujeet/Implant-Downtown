@@ -9,6 +9,7 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { EmergencySection } from "@/components/EmergencySection";
 import { FAQSection } from "@/components/FAQSection";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   PhoneCall,
   Mail,
@@ -19,12 +20,14 @@ import {
   Users,
   Calendar,
   Clock,
+  Menu,
 } from "lucide-react";
 import { Helmet } from "react-helmet";
 
 const Index = () => {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,8 +42,20 @@ const Index = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
 
+  const navigationItems = [
+    { label: t("nav.home"), action: () => scrollToSection("home") },
+    { label: t("nav.about"), action: () => scrollToSection("about") },
+    {
+      label: "Our Dentists",
+      action: () => (window.location.href = "/dentists"),
+    },
+    { label: t("nav.services"), action: () => scrollToSection("services") },
+    { label: t("nav.reviews"), action: () => scrollToSection("testimonials") },
+    { label: t("nav.contact"), action: () => scrollToSection("contact") },
+  ];
   return (
     <>
       <Helmet>
@@ -74,38 +89,17 @@ const Index = () => {
                 </span>
               </div>
 
+              {/* Desktop Navigation */}
               <div className="hidden md:flex space-x-8">
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  {t("nav.home")}
-                </button>
-                <button
-                  onClick={() => scrollToSection("about")}
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  {t("nav.about")}
-                </button>
-                 <a href="/dentists" className="text-gray-700 hover:text-blue-600 transition-colors">Our Dentists</a>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  {t("nav.services")}
-                </button>
-                <button
-                  onClick={() => scrollToSection("testimonials")}
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  {t("nav.reviews")}
-                </button>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  {t("nav.contact")}
-                </button>
+                {navigationItems.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={item.action}
+                    className="text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    {item.label}
+                  </button>
+                ))}
               </div>
 
               <div className="flex items-center space-x-2 md:space-x-4">
@@ -125,6 +119,41 @@ const Index = () => {
                   <span className="hidden sm:inline">Book Consultation</span>
                   <span className="sm:hidden">Book</span>
                 </Button>
+
+                {/* Mobile Menu Button */}
+                <Sheet
+                  open={isMobileMenuOpen}
+                  onOpenChange={setIsMobileMenuOpen}
+                >
+                  <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon" className="md:hidden">
+                      <Menu className="h-5 w-5" />
+                      <span className="sr-only">Toggle menu</span>
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                    <nav className="flex flex-col space-y-4 mt-8">
+                      {navigationItems.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={item.action}
+                          className="text-left py-3 px-4 text-lg text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors"
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                      <div className="pt-4 border-t">
+                        <a
+                          href="tel:+1-800-IMPLANT"
+                          className="flex items-center py-3 px-4 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                        >
+                          <PhoneCall className="w-5 h-5 mr-3" />
+                          <span className="font-semibold">1-800-IMPLANT</span>
+                        </a>
+                      </div>
+                    </nav>
+                  </SheetContent>
+                </Sheet>
               </div>
             </div>
           </div>
