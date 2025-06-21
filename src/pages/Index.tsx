@@ -87,6 +87,7 @@ const Index = () => {
                 >
                   {t("nav.about")}
                 </button>
+                 <a href="/dentists" className="text-gray-700 hover:text-blue-600 transition-colors">Our Dentists</a>
                 <button
                   onClick={() => scrollToSection("services")}
                   className="text-gray-700 hover:text-blue-600 transition-colors"
