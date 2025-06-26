@@ -29,7 +29,7 @@ const WhatsAppButton = () => {
 
       const data = await res.json();
       if (data?.url) {
-        window.open(data.url, "_blank");
+        window.location.href = data.url; // <-- Mobile-friendly redirect
       } else {
         alert("Unable to open WhatsApp chat.");
       }
@@ -40,7 +40,7 @@ const WhatsAppButton = () => {
     setIsOpen(false);
   };
 
-  // Close on outside click
+  // Close menu on outside click
   useEffect(() => {
     const closeIfClickedOutside = (e: MouseEvent) => {
       if (
