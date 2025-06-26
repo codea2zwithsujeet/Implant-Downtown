@@ -23,6 +23,7 @@ import {
   Menu,
 } from "lucide-react";
 import { Helmet } from "react-helmet";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -484,6 +485,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+         {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
 
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-12">

@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "port": 4280,
+  "appLocation": "dist",           
+  "apiLocation": "api",
+  "apiPort": 7071
+}
