@@ -17,7 +17,7 @@ const WhatsAppButton = () => {
 
   const handleClick = async (type: string) => {
     try {
-      const res = await fetch("/api/get-whatsapp-link", {
+      const res = await fetch("https://implant-whatsapp-api.azurewebsites.net/api/get-whatsapp-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
