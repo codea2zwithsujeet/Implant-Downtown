@@ -26,7 +26,9 @@ const WhatsAppButton = () => {
           consultationType: type,
         }),
       });
-
+      if (!res.ok) {
+        throw new Error("Failed to fetch WhatsApp link");
+      }
       const data = await res.json();
       if (data?.url) {
         window.location.href = data.url; // <-- Mobile-friendly redirect
@@ -51,7 +53,8 @@ const WhatsAppButton = () => {
       }
     };
     document.addEventListener("mousedown", closeIfClickedOutside);
-    return () => document.removeEventListener("mousedown", closeIfClickedOutside);
+    return () =>
+      document.removeEventListener("mousedown", closeIfClickedOutside);
   }, []);
 
   return (
