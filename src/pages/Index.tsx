@@ -396,7 +396,7 @@ const Index = () => {
       </section>
 
       {/* WhatsApp Floating Button */}
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
