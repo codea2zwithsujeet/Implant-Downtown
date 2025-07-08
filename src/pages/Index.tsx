@@ -53,9 +53,9 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">DH</span>
+                <span className="text-white font-bold text-sm">ID</span>
               </div>
-              <span className="text-xl font-bold text-gray-800">Dr. Husseini Dental</span>
+              <span className="text-xl font-bold text-gray-800">Implant-Downtown</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -405,9 +405,9 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">DH</span>
+                  <span className="text-white font-bold text-sm">ID</span>
                 </div>
-                <span className="text-xl font-bold">Dr. Husseini Dental</span>
+                <span className="text-xl font-bold">Implant-Downtown</span>
               </div>
               <p className="text-gray-400">
                 Expert dental implant services in downtown Montreal, conveniently located near Concordia University and Complexe Desjardins.
