@@ -9,7 +9,6 @@ const resources = {
         home: "Home",
         about: "About",
         services: "Services",
-        reviews: "Reviews",
         contact: "Contact"
       },
       // Hero Section
